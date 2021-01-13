@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Post from '../Post/Post';
+import "./Home.css"
 
 const Home = () => {
     const [post, setPost] = useState([])
@@ -9,9 +10,10 @@ const Home = () => {
         .then(response => response.json())
         .then(data => setPost(data))
     }, [])
-    console.log(post);
+    // console.log(post);
     return (
         <div>
+            <h1 className="header">User Post: {post.length}</h1>
             {
                 post.map(post => <Post post={post}></Post>)
             }

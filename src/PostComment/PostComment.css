@@ -5,4 +5,13 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 3px 3px 15px lightsteelblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment-section {
+    margin-left: 10px;
+}
+.comment-section > p {
+    font-style: italic;
 }

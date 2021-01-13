@@ -3,13 +3,19 @@ import "./PostComment.css"
 
 const PostComment = (props) => {
     const {id,name,body} = props.comment 
+    const { thumbnailUrl } = props.photos;
     return (
-        <div className="post-comment">
-            <h1>Comment Id: {id}</h1>
-            <h4>Name: {name}</h4>
-            <p>Comment: {body}</p>
+      <div className="post-comment">
+        <div>
+          <img src={thumbnailUrl} alt="" />
         </div>
-    )
+        <div className="comment-section">
+          <h3>Comment Id: {id}</h3>
+          <h5>Name: {name}</h5>
+          <p><strong>Comment:</strong> {body}</p>
+        </div>
+      </div>
+    );
 }
 
 export default PostComment

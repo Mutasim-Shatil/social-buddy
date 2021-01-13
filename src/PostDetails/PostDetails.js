@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import PostComment from '../PostComment/PostComment';
 
-const PostDetails = () => {
+const PostDetails = (props) => {
     const {postId} = useParams()
     const [comment, setComment] = useState([]);
     useEffect(() => {
@@ -11,11 +11,18 @@ const PostDetails = () => {
           .then((response) => response.json())
           .then((data) => setComment(data));
     }, [])
-    console.log(comment);
+    const [photos, setPhotos] = useState([])
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/photos/${postId}`)
+        .then((response) => response.json())
+        .then(data => setPhotos(data))
+    },[])
+    console.log(photos);
     return (
         <div>
+            <h1 className="header">Comment: {comment.length}</h1>
             {
-                comment.map(comment => <PostComment comment={comment}></PostComment>)
+                comment.map(comment => <PostComment comment={comment} photos={photos}></PostComment>)
             }
         </div>
     )
