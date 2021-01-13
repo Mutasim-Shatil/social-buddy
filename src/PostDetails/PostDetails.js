@@ -17,7 +17,6 @@ const PostDetails = (props) => {
         .then((response) => response.json())
         .then(data => setPhotos(data))
     },[])
-    console.log(photos);
     return (
         <div>
             <h1 className="header">Comment: {comment.length}</h1>
